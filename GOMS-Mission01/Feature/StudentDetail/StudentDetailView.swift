@@ -22,5 +22,10 @@ class StudentDetailViewController: UIViewController {
         super.viewDidLoad()
         title = "학생 상세"
         view .backgroundColor = .systemBackground
+        
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 24
+        stack.translatesAutoresizingMaskIntoConstraints = false
     }
 }
