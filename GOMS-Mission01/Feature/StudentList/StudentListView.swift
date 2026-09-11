@@ -7,30 +7,57 @@
 
 import UIKit
 
-class StudentListViewController: UIViewController, UITableViewDataSource    {
+class StudentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     private let students = StudentDummyData.students
     private let tableView = UITableView()
-    // 화면에서 보여줄 테이블뷰 객체 작성
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-            title = "학생 목록"
-            
-            tableView.dataSource = self
-            tableView.frame = view.bounds
-        // 화면 전체 크기만큼 테이블뷰 크기 조정
-            view.addSubview(tableView)
-            
-        }
-    func tableView(_ talbeView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return students.count
-    }
-    func tableView(_ talbeviw: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let student = students[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = student.name
-        cell.textLabel?.text = student.studentNumber
-        return cell
-    }
+        title = "학생 목록"
+        view.backgroundColor = .systemBackground
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "StudentCell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return students.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let student = students[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
+
+        var config = cell.defaultContentConfiguration()
+        config.text = student.name
+        config.secondaryText = student.studentNumber
+        cell.contentConfiguration = config
+
+        let badge = UILabel()
+        badge.text = student.status.rawValue
+        badge.font = .systemFont(ofSize: 13, weight: .semibold)
+        badge.textColor = student.status == .outing ? .systemOrange : .systemGreen
+        badge.sizeToFit()
+        cell.accessoryView = badge
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let student = students[indexPath.row]
+        let detailVC = StudentDetailViewController(student: student)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
