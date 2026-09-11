@@ -6,20 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		86E4687B305267CB005671F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86E4687A305267CB005671F2 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		86E4685530526311005671F2 /* GOMS-Mission01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GOMS-Mission01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86E4686E305267CA005671F2 /* GOMS-Mission01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GOMS-Mission01.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86E4687A305267CB005671F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		86E468A530526C60005671F2 /* Exceptions for "APP" folder in "GOMS-Mission01" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 86E4686D305267CA005671F2 /* GOMS-Mission01 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		86E4685730526311005671F2 /* GOMS-Mission01 */ = {
+		86E46870305267CA005671F2 /* GOMS-Mission01 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "GOMS-Mission01";
+			sourceTree = "<group>";
+		};
+		86E4689F30526C5F005671F2 /* APP */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				86E468A530526C60005671F2 /* Exceptions for "APP" folder in "GOMS-Mission01" target */,
+			);
+			path = APP;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		86E4685230526311005671F2 /* Frameworks */ = {
+		86E4686B305267CA005671F2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +52,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		86E4684C30526310005671F2 = {
+		86E46865305267CA005671F2 = {
 			isa = PBXGroup;
 			children = (
-				86E4685730526311005671F2 /* GOMS-Mission01 */,
-				86E4685630526311005671F2 /* Products */,
+				86E4687A305267CB005671F2 /* Assets.xcassets */,
+				86E4689F30526C5F005671F2 /* APP */,
+				86E46870305267CA005671F2 /* GOMS-Mission01 */,
+				86E4686F305267CA005671F2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		86E4685630526311005671F2 /* Products */ = {
+		86E4686F305267CA005671F2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				86E4685530526311005671F2 /* GOMS-Mission01.app */,
+				86E4686E305267CA005671F2 /* GOMS-Mission01.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,74 +73,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		86E4685430526311005671F2 /* GOMS-Mission01 */ = {
+		86E4686D305267CA005671F2 /* GOMS-Mission01 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 86E4686030526312005671F2 /* Build configuration list for PBXNativeTarget "GOMS-Mission01" */;
+			buildConfigurationList = 86E46881305267CB005671F2 /* Build configuration list for PBXNativeTarget "GOMS-Mission01" */;
 			buildPhases = (
-				86E4685130526311005671F2 /* Sources */,
-				86E4685230526311005671F2 /* Frameworks */,
-				86E4685330526311005671F2 /* Resources */,
+				86E4686A305267CA005671F2 /* Sources */,
+				86E4686B305267CA005671F2 /* Frameworks */,
+				86E4686C305267CA005671F2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				86E4685730526311005671F2 /* GOMS-Mission01 */,
+				86E46870305267CA005671F2 /* GOMS-Mission01 */,
+				86E4689F30526C5F005671F2 /* APP */,
 			);
 			name = "GOMS-Mission01";
 			packageProductDependencies = (
 			);
 			productName = "GOMS-Mission01";
-			productReference = 86E4685530526311005671F2 /* GOMS-Mission01.app */;
+			productReference = 86E4686E305267CA005671F2 /* GOMS-Mission01.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		86E4684D30526310005671F2 /* Project object */ = {
+		86E46866305267CA005671F2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
-					86E4685430526311005671F2 = {
+					86E4686D305267CA005671F2 = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
 			};
-			buildConfigurationList = 86E4685030526310005671F2 /* Build configuration list for PBXProject "GOMS-Mission01" */;
+			buildConfigurationList = 86E46869305267CA005671F2 /* Build configuration list for PBXProject "GOMS-Mission01" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 86E4684C30526310005671F2;
+			mainGroup = 86E46865305267CA005671F2;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 86E4685630526311005671F2 /* Products */;
+			productRefGroup = 86E4686F305267CA005671F2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				86E4685430526311005671F2 /* GOMS-Mission01 */,
+				86E4686D305267CA005671F2 /* GOMS-Mission01 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		86E4685330526311005671F2 /* Resources */ = {
+		86E4686C305267CA005671F2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E4687B305267CB005671F2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		86E4685130526311005671F2 /* Sources */ = {
+		86E4686A305267CA005671F2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +152,69 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		86E4685E30526312005671F2 /* Debug */ = {
+		86E46882305267CB005671F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GOMS-Mission01/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahnyul.GOMS-Mission01";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		86E46883305267CB005671F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "GOMS-Mission01/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ahnyul.GOMS-Mission01";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		86E46884305267CB005671F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +277,7 @@
 			};
 			name = Debug;
 		};
-		86E4685F30526312005671F2 /* Release */ = {
+		86E46885305267CB005671F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,90 +333,28 @@
 			};
 			name = Release;
 		};
-		86E4686130526312005671F2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ahnyul.GOMS-Mission01";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		86E4686230526312005671F2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ahnyul.GOMS-Mission01";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		86E4685030526310005671F2 /* Build configuration list for PBXProject "GOMS-Mission01" */ = {
+		86E46869305267CA005671F2 /* Build configuration list for PBXProject "GOMS-Mission01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86E4685E30526312005671F2 /* Debug */,
-				86E4685F30526312005671F2 /* Release */,
+				86E46884305267CB005671F2 /* Debug */,
+				86E46885305267CB005671F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		86E4686030526312005671F2 /* Build configuration list for PBXNativeTarget "GOMS-Mission01" */ = {
+		86E46881305267CB005671F2 /* Build configuration list for PBXNativeTarget "GOMS-Mission01" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86E4686130526312005671F2 /* Debug */,
-				86E4686230526312005671F2 /* Release */,
+				86E46882305267CB005671F2 /* Debug */,
+				86E46883305267CB005671F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 86E4684D30526310005671F2 /* Project object */;
+	rootObject = 86E46866305267CA005671F2 /* Project object */;
 }

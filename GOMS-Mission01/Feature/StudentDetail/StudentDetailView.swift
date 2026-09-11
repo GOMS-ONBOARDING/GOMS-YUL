@@ -18,4 +18,9 @@ class StudentDetailViewController: UIViewController {
     required init?(coder : NSCoder){
         fatalError("init(coder:) has not been implemented")
     }
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        title = "학생 상세"
+        view .backgroundColor = .systemBackground
+    }
 }
