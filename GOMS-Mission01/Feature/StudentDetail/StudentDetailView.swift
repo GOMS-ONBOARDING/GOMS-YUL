@@ -27,5 +27,37 @@ class StudentDetailViewController: UIViewController {
         stack.axis = .vertical
         stack.spacing = 24
         stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(infoRow(title: "이름", value: student.name))
+        stack.addArrangedSubview(infoRow(title: "학번", value: student.studentNumber))
+        stack.addArrangedSubview(infoRow(title: "현재 상태", value: student.status.rawValue))
+        
+        view.addSubview(stack)
+        
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        
+    }
+    private func infoRow(title: String, value: String) -> UIView{
+        let container = UIStackView()
+        container.axis = .vertical
+        container.spacing = 6
+        
+        let titleLable = UILabel()
+        titleLable.text = title
+        titleLable.font = .preferredFont(forTextStyle: .caption1)
+        titleLable.textColor = .secondaryLabel
+        
+        let valueLable = UILabel()
+        valueLable.text = value
+        valueLable.font = .preferredFont(forTextStyle: .caption1)
+        
+        container.addArrangedSubview(titleLable)
+        container.addArrangedSubview(valueLable)
+        
+        return container
     }
 }
