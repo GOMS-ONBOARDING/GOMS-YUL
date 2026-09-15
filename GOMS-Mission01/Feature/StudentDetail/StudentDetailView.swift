@@ -1,0 +1,63 @@
+//
+//  StudentDetailView.swift
+//  GOMS-Mission01
+//
+//  Created by 안율 on 9/10/26.
+//
+
+import UIKit
+
+class StudentDetailViewController: UIViewController {
+    let student: Student
+    
+    init(student : Student){
+        self.student = student
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder : NSCoder){
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        title = "학생 상세"
+        view .backgroundColor = .systemBackground
+        
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 24
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        
+        stack.addArrangedSubview(infoRow(title: "이름", value: student.name))
+        stack.addArrangedSubview(infoRow(title: "학번", value: student.studentNumber))
+        stack.addArrangedSubview(infoRow(title: "현재 상태", value: student.status.rawValue))
+        
+        view.addSubview(stack)
+        
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            stack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        
+    }
+    private func infoRow(title: String, value: String) -> UIView{
+        let container = UIStackView()
+        container.axis = .vertical
+        container.spacing = 6
+        
+        let titleLable = UILabel()
+        titleLable.text = title
+        titleLable.font = .preferredFont(forTextStyle: .caption1)
+        titleLable.textColor = .secondaryLabel
+        
+        let valueLable = UILabel()
+        valueLable.text = value
+        valueLable.font = .preferredFont(forTextStyle: .caption1)
+        
+        container.addArrangedSubview(titleLable)
+        container.addArrangedSubview(valueLable)
+        
+        return container
+    }
+}
