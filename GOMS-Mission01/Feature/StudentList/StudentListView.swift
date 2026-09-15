@@ -8,9 +8,19 @@
 import UIKit
 
 class StudentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    private let students = StudentDummyData.students
+    
+    private let students: [Student]
     private let tableView = UITableView()
+    
+    init(students: [Student] = StudentDummyData.students){
+        self.students = students
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +57,7 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
         let badge = UILabel()
         badge.text = student.status.rawValue
         badge.font = .systemFont(ofSize: 13, weight: .semibold)
-        badge.textColor = student.status == .outing ? .systemOrange : .systemGreen
+        badge.textColor = student.status.badgeColor
         badge.sizeToFit()
         cell.accessoryView = badge
 

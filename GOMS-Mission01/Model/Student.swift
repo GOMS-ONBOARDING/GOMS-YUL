@@ -5,7 +5,7 @@
 //  Created by 안율 on 9/10/26.
 //
 
-import Foundation
+import UIKit
 
 struct Student: Identifiable, Hashable {
     let id: UUID
@@ -29,5 +29,14 @@ struct Student: Identifiable, Hashable {
 enum StudentStatus: String {
     case inSchool = "교내"
     case outing = "외출"
+    
+    var badgeColor: UIColor {
+        switch self {
+        case .inSchool:
+            return .systemGreen
+        case .outing:
+            return .systemOrange
+        }
+    }
 }
 
