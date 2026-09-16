@@ -11,7 +11,7 @@ struct Student: Identifiable, Hashable {
     let id: UUID
     let name: String
     let studentNumber: String
-    let status: StudentStatus
+    var status: StudentStatus
 
     init(
         id: UUID = UUID(),
