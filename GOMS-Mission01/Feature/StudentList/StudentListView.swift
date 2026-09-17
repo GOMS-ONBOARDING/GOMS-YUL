@@ -8,8 +8,7 @@
 import UIKit
 
 class StudentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    private let students = StudentDummyData.students
+    private var students = StudentDummyData.students
     private let tableView = UITableView()
 
     override func viewDidLoad() {
