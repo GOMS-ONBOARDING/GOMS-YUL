@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Student: Identifiable, Hashable {
     let id: UUID
@@ -29,5 +30,5 @@ struct Student: Identifiable, Hashable {
 enum StudentStatus: String {
     case inSchool = "교내"
     case outing = "외출"
-}
+    var badeColor: UIColor {
 
