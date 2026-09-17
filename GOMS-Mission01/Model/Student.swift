@@ -30,5 +30,15 @@ struct Student: Identifiable, Hashable {
 enum StudentStatus: String {
     case inSchool = "교내"
     case outing = "외출"
-    var badeColor: UIColor {
+    
+    var toggled: StudentStatus{
+        switch self{
+        case .inSchool:
+            return .outing
+        case .outing:
+            return .inSchool
+        }
+    }
+}
+    
 

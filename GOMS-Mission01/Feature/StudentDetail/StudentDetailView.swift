@@ -8,10 +8,14 @@
 import UIKit
 
 class StudentDetailViewController: UIViewController {
-    let student: Student
+    private var student : Student
+    private let onStatusChange: (Student) -> Void
     
-    init(student : Student){
+    private let statusButton = UIButton(type: .system)
+    
+    init(student : Student, onStatusChange: @escaping (Student) -> Void){
         self.student = student
+        self.onStatusChange = onStatusChange
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,6 +26,32 @@ class StudentDetailViewController: UIViewController {
         super.viewDidLoad()
         title = "학생 상세"
         view .backgroundColor = .systemBackground
+        configureLayout()
+        updateButtonTitle()
+    }
+    
+    private func updateButtonTitle(){
+        let buttonText = student.status == .outing ? "복귀 처리" : "외출 처리"
+        statusButton.setTitle(buttonText, for : .normal)
+    }
+    
+    @objc private func statusButtonTapped() {
+        student.status = student.status.toggled
+        updateButtonTitle()
+        onStatusChange(student)
+    }
+    private func configureLayout() {
+        
+        statusButton.addTarget(self, action: #selector(statusButtonTapped), for : .touchUpInside)
+        statusButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(statusButton)
+        
+        NSLayoutConstraint.activate([
+            statusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            statusButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -40)
+        ])
+        
+        
         
         let stack = UIStackView()
         stack.axis = .vertical
@@ -41,6 +71,7 @@ class StudentDetailViewController: UIViewController {
         ])
         
     }
+}
     private func infoRow(title: String, value: String) -> UIView{
         let container = UIStackView()
         container.axis = .vertical
@@ -60,4 +91,4 @@ class StudentDetailViewController: UIViewController {
         
         return container
     }
-}
+
