@@ -57,7 +57,10 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let student = students[indexPath.row]
-        let detailVC = StudentDetailViewController(student: student)
+        let detailVC = StudentDetailViewController(student: student){[weak self] updatedStudent in guard let self else {return}
+            self.students[indexPath.row] = updatedStudent
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
