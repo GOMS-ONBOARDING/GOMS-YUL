@@ -8,8 +8,17 @@
 import UIKit
 
 class StudentListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    private var students = StudentDummyData.students
+    private var students : [Student]
     private let tableView = UITableView()
+    
+    init(students: [Student]) {
+        self.students = students
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder){
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let listVC = StudentListViewController()
+        let listVC = StudentListViewController(students: StudentDummyData.students)
         let navController = UINavigationController(rootViewController: listVC)
         
         window.rootViewController = navController
