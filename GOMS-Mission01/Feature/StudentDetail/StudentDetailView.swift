@@ -10,8 +10,8 @@ import UIKit
 class StudentDetailViewController: UIViewController {
     private var student : Student
     private let onStatusChange: (Student) -> Void
-    
     private let statusButton = UIButton(type: .system)
+    private let statusValueLabel = UILabel()
     
     init(student : Student, onStatusChange: @escaping (Student) -> Void){
         self.student = student
@@ -38,6 +38,7 @@ class StudentDetailViewController: UIViewController {
     @objc private func statusButtonTapped() {
         student.status = student.status.toggled
         updateButtonTitle()
+        statusValueLabel.text = student.status.rawValue //
         onStatusChange(student)
     }
     private func configureLayout() {
