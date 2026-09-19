@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct Student: Identifiable, Hashable {
     let id: UUID
     let name: String
     let studentNumber: String
-    let status: StudentStatus
+    var status: StudentStatus
 
     init(
         id: UUID = UUID(),
@@ -29,5 +30,24 @@ struct Student: Identifiable, Hashable {
 enum StudentStatus: String {
     case inSchool = "교내"
     case outing = "외출"
+    
+    var toggled: StudentStatus{
+        switch self{
+        case .inSchool:
+            return .outing
+        case .outing:
+            return .inSchool
+        }
+    }
+    
+    var badgeColor: UIColor{
+        switch self {
+        case .inSchool:
+            return .systemGreen
+        case .outing:
+            return .systemOrange
+        }
+    }
 }
+    
 
