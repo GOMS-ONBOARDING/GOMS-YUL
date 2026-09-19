@@ -46,7 +46,7 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
         let badge = UILabel()
         badge.text = student.status.rawValue
         badge.font = .systemFont(ofSize: 13, weight: .semibold)
-        badge.textColor = student.status == .outing ? .systemOrange : .systemGreen
+        badge.textColor = student.status.badgeColor
         badge.sizeToFit()
         cell.accessoryView = badge
 

@@ -39,6 +39,15 @@ enum StudentStatus: String {
             return .inSchool
         }
     }
+    
+    var badgeColor: UIColor{
+        switch self {
+        case .inSchool:
+            return .systemGreen
+        case .outing:
+            return .systemOrange
+        }
+    }
 }
     
 
