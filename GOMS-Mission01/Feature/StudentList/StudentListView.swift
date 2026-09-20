@@ -49,13 +49,16 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
 
         var config = cell.defaultContentConfiguration()
         config.text = student.name
-        config.secondaryText = student.studentNumber
+        config.secondaryText = student.expectedReturnTime != nil
+        ?"\(student.studentNumber) · 복귀예정 \(formattedTime(student.expectedReturnTime!))"
+        : student.studentNumber
+        
         cell.contentConfiguration = config
 
         let badge = UILabel()
-        badge.text = student.status.rawValue
+        badge.text = student.displayStatus.rawValue
         badge.font = .systemFont(ofSize: 13, weight: .semibold)
-        badge.textColor = student.status.badgeColor
+        badge.textColor = student.displayStatus.badgeColor
         badge.sizeToFit()
         cell.accessoryView = badge
 
@@ -71,4 +74,10 @@ class StudentListViewController: UIViewController, UITableViewDataSource, UITabl
         }
         navigationController?.pushViewController(detailVC, animated: true)
     }
+}
+
+private func formattedTime(_ date: Date) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "HH:mm"
+    return formatter.string(from: date)
 }
