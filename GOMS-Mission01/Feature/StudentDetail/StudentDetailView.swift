@@ -12,7 +12,7 @@ class StudentDetailViewController: UIViewController {
     private let onStatusChange: (Student) -> Void
     private let statusButton = UIButton(type: .system)
     private let statusValueLabel = UILabel()
-    private let returnTimeValueLabel = UILabel()보
+    private let returnTimeValueLabel = UILabel()
     
     init(student : Student, onStatusChange: @escaping (Student) -> Void){
         self.student = student
@@ -63,13 +63,13 @@ class StudentDetailViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
         datePicker.preferredDatePickerStyle = .wheels
-        alert.view?.addSubview(datePicker)
+        alert.view.addSubview(datePicker)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             datePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
             datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50)
         ])
-        alert.view?.heightAnchor.constraint(equalToConstant:250).isActive = true
+        alert.view.heightAnchor.constraint(equalToConstant:250).isActive = true
         alert.addAction(UIAlertAction(title: "확인",style: .default) { [weak self]_ in guard let self else {return}
             self.student.status = .outing
             self.student.expectedReturnTime = datePicker.date
@@ -112,28 +112,26 @@ class StudentDetailViewController: UIViewController {
         ])
         
     }
-    private func infoRow(title: String, value: String) -> UIView{
+    private func infoRow(titleText: String, valueLabel: UILabel) -> UIView{
 
         let container = UIStackView()
         container.axis = .vertical
         container.spacing = 6
         
-        let titleLable = UILabel()
-        titleLable.text = title
-        titleLable.font = .preferredFont(forTextStyle: .caption1)
-        titleLable.textColor = .secondaryLabel
+        let titleLabel = UILabel()
+        titleLabel.text = titleText
+        titleLabel.font = .preferredFont(forTextStyle: .caption1)
+        titleLabel.textColor = .secondaryLabel
         
-        let valueLable = UILabel()
-        valueLable.text = value
-        valueLable.font = .preferredFont(forTextStyle: .caption1)
+        valueLabel.font = .preferredFont(forTextStyle: .caption1)
         
-        container.addArrangedSubview(titleLable)
-        container.addArrangedSubview(valueLable)
+        container.addArrangedSubview(titleLabel)
+        container.addArrangedSubview(valueLabel)
         
         return container
     }
 
-    private func formattedTime(_ date: Data) -> String {
+    private func formattedTime(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: date)
