@@ -12,6 +12,7 @@ class StudentDetailViewController: UIViewController {
     private let onStatusChange: (Student) -> Void
     private let statusButton = UIButton(type: .system)
     private let statusValueLabel = UILabel()
+    private let returnTimeValueLabel = UILabel()
     
     init(student : Student, onStatusChange: @escaping (Student) -> Void){
         self.student = student
@@ -37,6 +38,12 @@ class StudentDetailViewController: UIViewController {
     
     @objc private func statusButtonTapped() {
         if student.status == .inSchool{
+            presentReturnTimePicker()
+        }else {
+            student.status = .inSchool
+            student.expectedReturnTime = nil
+            refreshUI()
+            onStatusChange(student)
             
         }
     }
