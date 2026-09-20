@@ -56,6 +56,21 @@ class StudentDetailViewController: UIViewController {
             
         }
     }
+    
+    private func presentReturnTimePicker(){
+        let alert = UIAlertController(title: "복귀 예정 시간", message: nil, preferredStyle: .alert)
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .time
+        datePicker.preferredDatePickerStyle = .wheels
+        alert.view?.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            datePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50)
+        ])
+        alert.view?.heightAnchor.constraint(equalToConstant:250).isActive = true
+    }
     private func configureLayout() {
         
         statusButton.addTarget(self, action: #selector(statusButtonTapped), for : .touchUpInside)
