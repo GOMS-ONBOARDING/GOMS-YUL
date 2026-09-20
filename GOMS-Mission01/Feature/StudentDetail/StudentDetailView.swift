@@ -77,6 +77,9 @@ class StudentDetailViewController: UIViewController {
             self.refreshUI()
             self.onStatusChange(self.student)
         })
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
+        present(alert, animated: true)
     }
     private func configureLayout() {
         
