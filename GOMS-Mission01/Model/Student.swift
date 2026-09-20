@@ -13,6 +13,7 @@ struct Student: Identifiable, Hashable {
     let name: String
     let studentNumber: String
     var status: StudentStatus
+    var expectedReturnTime: Data?
 
     init(
         id: UUID = UUID(),
