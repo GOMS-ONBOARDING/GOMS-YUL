@@ -33,8 +33,16 @@ class StudentDetailViewController: UIViewController {
     }
     
     private func updateButtonTitle(){
-        let buttonText = student.status == .outing ? "복귀 처리" : "외출 처리"
+        let buttonText = student.status == .inSchool ? "외출 처리" : "복귀 처리"
         statusButton.setTitle(buttonText, for : .normal)
+    }
+    private func refreshUI(){
+        statusValueLabel.text = student.displayStatus.rawValue
+        if let time = student.expectedReturnTime{
+            returnTimeValueLabel.text = formattedTime(time)
+        }else {
+            returnTimeValueLabel.text = "-"
+        }
     }
     
     @objc private func statusButtonTapped() {
