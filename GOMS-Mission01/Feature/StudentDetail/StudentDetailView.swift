@@ -48,7 +48,7 @@ class StudentDetailViewController: UIViewController {
     @objc private func statusButtonTapped() {
         if student.status == .inSchool{
             presentReturnTimePicker()
-        }else {
+        } else {
             student.status = .inSchool
             student.expectedReturnTime = nil
             refreshUI()
