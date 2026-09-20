@@ -70,6 +70,13 @@ class StudentDetailViewController: UIViewController {
             datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50)
         ])
         alert.view?.heightAnchor.constraint(equalToConstant:250).isActive = true
+        alert.addAction(UIAlertAction(title: "확인",style: .default) { [weak self]_ in guard let self else {return}
+            self.student.status = .outing
+            self.student.expectedReturnTime = datePicker.date
+            self.updateButtonTitle()
+            self.refreshUI()
+            self.onStatusChange(self.student)
+        })
     }
     private func configureLayout() {
         
