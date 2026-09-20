@@ -101,7 +101,8 @@ class StudentDetailViewController: UIViewController {
         
         stack.addArrangedSubview(infoRow(title: "이름", value: student.name))
         stack.addArrangedSubview(infoRow(title: "학번", value: student.studentNumber))
-        stack.addArrangedSubview(infoRow(title: "현재 상태", value: student.status.rawValue))
+        stack.addArrangedSubview(infoRow(titleText: "현재 상태", valueLabel: statusValueLabel))
+        stack.addArrangedSubview(infoRow(titleText: "복귀 예정 시간", valueLabel: returnTimeValueLabel))
         
         view.addSubview(stack)
         
@@ -130,7 +131,12 @@ class StudentDetailViewController: UIViewController {
         
         return container
     }
-
+    private func infoRow(title: String, value: String) -> UIView{
+        let valueLabel = UILabel()
+        valueLabel.text = value
+        return infoRow(titleText: title, valueLabel: valueLabel)
+    }
+    
     private func formattedTime(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
