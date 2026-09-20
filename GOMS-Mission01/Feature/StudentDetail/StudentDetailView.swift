@@ -112,8 +112,8 @@ class StudentDetailViewController: UIViewController {
         ])
         
     }
-}
     private func infoRow(title: String, value: String) -> UIView{
+
         let container = UIStackView()
         container.axis = .vertical
         container.spacing = 6
@@ -132,4 +132,11 @@ class StudentDetailViewController: UIViewController {
         
         return container
     }
+
+    private func formattedTime(_ date: Data) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+}
 
