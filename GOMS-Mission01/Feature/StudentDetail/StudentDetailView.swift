@@ -12,6 +12,7 @@ class StudentDetailViewController: UIViewController {
     private let onStatusChange: (Student) -> Void
     private let statusButton = UIButton(type: .system)
     private let statusValueLabel = UILabel()
+    private let returnTimeValueLabel = UILabel()
     
     init(student : Student, onStatusChange: @escaping (Student) -> Void){
         self.student = student
@@ -28,18 +29,57 @@ class StudentDetailViewController: UIViewController {
         view .backgroundColor = .systemBackground
         configureLayout()
         updateButtonTitle()
+        refreshUI()
     }
     
     private func updateButtonTitle(){
-        let buttonText = student.status == .outing ? "복귀 처리" : "외출 처리"
+        let buttonText = student.status == .inSchool ? "외출 처리" : "복귀 처리"
         statusButton.setTitle(buttonText, for : .normal)
+    }
+    private func refreshUI(){
+        statusValueLabel.text = student.displayStatus.rawValue
+        if let time = student.expectedReturnTime{
+            returnTimeValueLabel.text = formattedTime(time)
+        }else {
+            returnTimeValueLabel.text = "-"
+        }
     }
     
     @objc private func statusButtonTapped() {
-        student.status = student.status.toggled
-        updateButtonTitle()
-        statusValueLabel.text = student.status.rawValue //
-        onStatusChange(student)
+        if student.status == .inSchool{
+            presentReturnTimePicker()
+        } else {
+            student.status = .inSchool
+            student.expectedReturnTime = nil
+            refreshUI()
+            onStatusChange(student)
+            
+        }
+    }
+    
+    private func presentReturnTimePicker(){
+        let alert = UIAlertController(title: "복귀 예정 시간", message: nil, preferredStyle: .alert)
+        
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .time
+        datePicker.preferredDatePickerStyle = .wheels
+        alert.view.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            datePicker.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50)
+        ])
+        alert.view.heightAnchor.constraint(equalToConstant:250).isActive = true
+        alert.addAction(UIAlertAction(title: "확인",style: .default) { [weak self]_ in guard let self else {return}
+            self.student.status = .outing
+            self.student.expectedReturnTime = datePicker.date
+            self.updateButtonTitle()
+            self.refreshUI()
+            self.onStatusChange(self.student)
+        })
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
+        present(alert, animated: true)
     }
     private func configureLayout() {
         
@@ -61,7 +101,8 @@ class StudentDetailViewController: UIViewController {
         
         stack.addArrangedSubview(infoRow(title: "이름", value: student.name))
         stack.addArrangedSubview(infoRow(title: "학번", value: student.studentNumber))
-        stack.addArrangedSubview(infoRow(title: "현재 상태", value: student.status.rawValue))
+        stack.addArrangedSubview(infoRow(titleText: "현재 상태", valueLabel: statusValueLabel))
+        stack.addArrangedSubview(infoRow(titleText: "복귀 예정 시간", valueLabel: returnTimeValueLabel))
         
         view.addSubview(stack)
         
@@ -72,24 +113,34 @@ class StudentDetailViewController: UIViewController {
         ])
         
     }
-}
-    private func infoRow(title: String, value: String) -> UIView{
+    private func infoRow(titleText: String, valueLabel: UILabel) -> UIView{
+
         let container = UIStackView()
         container.axis = .vertical
         container.spacing = 6
         
-        let titleLable = UILabel()
-        titleLable.text = title
-        titleLable.font = .preferredFont(forTextStyle: .caption1)
-        titleLable.textColor = .secondaryLabel
+        let titleLabel = UILabel()
+        titleLabel.text = titleText
+        titleLabel.font = .preferredFont(forTextStyle: .caption1)
+        titleLabel.textColor = .secondaryLabel
         
-        let valueLable = UILabel()
-        valueLable.text = value
-        valueLable.font = .preferredFont(forTextStyle: .caption1)
+        valueLabel.font = .preferredFont(forTextStyle: .caption1)
         
-        container.addArrangedSubview(titleLable)
-        container.addArrangedSubview(valueLable)
+        container.addArrangedSubview(titleLabel)
+        container.addArrangedSubview(valueLabel)
         
         return container
     }
+    private func infoRow(title: String, value: String) -> UIView{
+        let valueLabel = UILabel()
+        valueLabel.text = value
+        return infoRow(titleText: title, valueLabel: valueLabel)
+    }
+    
+    private func formattedTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+}
 
