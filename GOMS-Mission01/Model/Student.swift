@@ -19,12 +19,14 @@ struct Student: Identifiable, Hashable {
         id: UUID = UUID(),
         name: String,
         studentNumber: String,
-        status: StudentStatus
+        status: StudentStatus,
+        expectedReturnTime: Data? = nil
     ) {
         self.id = id
         self.name = name
         self.studentNumber = studentNumber
         self.status = status
+        self.expectedReturnTime = expectedReturnTime
     }
 }
 
