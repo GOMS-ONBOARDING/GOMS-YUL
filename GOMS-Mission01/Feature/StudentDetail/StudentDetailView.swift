@@ -36,10 +36,9 @@ class StudentDetailViewController: UIViewController {
     }
     
     @objc private func statusButtonTapped() {
-        student.status = student.status.toggled
-        updateButtonTitle()
-        statusValueLabel.text = student.status.rawValue //
-        onStatusChange(student)
+        if student.status == .inSchool{
+            
+        }
     }
     private func configureLayout() {
         
